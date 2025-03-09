@@ -3,29 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Redes Sociales</title>
+    <title>Redes Sociales</title>
+    <link rel="icon" href="UAM_Iztapalapa_logo.png" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background: url('fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
             padding: 50px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+        }
+        .header h2 {
+            margin: 0;
+        }
+        .header img {
+            width: auto;
+            height: auto;
+            margin-top: 10px;
         }
         .link {
             display: block;
+            width: 100%;
             margin: 10px 0;
-            padding: 10px;
+            padding: 15px;
             text-decoration: none;
             color: white;
             font-size: 18px;
             border-radius: 5px;
+            text-align: center;
+            box-sizing: border-box;
         }
         .youtube { background: red; }
         .facebook { background: blue; }
@@ -33,9 +58,14 @@
 </head>
 <body>
     <div class="container">
-        <h2>Mis Redes Sociales</h2>
-        <a href="https://www.youtube.com/" class="link youtube" target="_blank">YouTube</a>
-        <a href="https://www.facebook.com/" class="link facebook" target="_blank">Facebook</a>
+        <div class="header">
+            <h2>Departamento de Matemáticas<br>Seminario de Posgrado <br> Universidad Autónoma Metropolitana</h2>
+            <img src="mini_logo.png" alt="Logo">
+        </div>
+        
+        <p>Elige dónde ver la transmisión</p>
+        <a href="https://www.youtube.com/tucanal" class="link youtube" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/tuperfil" class="link facebook" target="_blank">Facebook</a>
     </div>
 </body>
 </html>
