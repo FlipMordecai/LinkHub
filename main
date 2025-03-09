@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Redes Sociales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .youtube { background: red; }
+        .facebook { background: blue; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mis Redes Sociales</h2>
+        <a href="https://www.youtube.com/" class="link youtube" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/" class="link facebook" target="_blank">Facebook</a>
+    </div>
+</body>
+</html>
