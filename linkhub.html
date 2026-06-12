@@ -3,74 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes Sociales</title>
-    <link rel="icon" href="UAM_Iztapalapa_logo.png" type="image/png">
+    <title>Venta de Vehículo</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --action-color: #25D366; /* Color de WhatsApp */
+            --bg-color: #f8f9fa;
+        }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: url('fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: #333;
         }
         .container {
-            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .header {
+        h1 {
             text-align: center;
+            color: var(--primary-color);
         }
-        .header h2 {
-            margin: 0;
+        .price {
+            text-align: center;
+            font-size: 2em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
-        .header img {
-            width: auto;
-            height: auto;
-            margin-top: 10px;
+        
+        /* Estilos del Carrusel */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
         }
-        .link {
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slides img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Especificaciones */
+        .specs {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .specs th, .specs td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .specs th {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40%;
+        }
+
+        /* Botón de Contacto */
+        .contact-btn {
             display: block;
             width: 100%;
-            margin: 10px 0;
+            background-color: var(--action-color);
+            color: white;
+            text-align: center;
             padding: 15px;
             text-decoration: none;
-            color: white;
-            font-size: 18px;
+            font-size: 1.2em;
+            font-weight: bold;
             border-radius: 5px;
-            text-align: center;
+            margin-top: 30px;
             box-sizing: border-box;
         }
-        .youtube { background: red; }
-        .facebook { background: blue; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Universidad Autónoma Metropolitana<br>Departamento de Matemáticas<br>Seminario de Posgrado</h2>
-            <img src="mini_logo.png" alt="Logo">
+
+<div class="container">
+    <h1>Marca Modelo Año</h1>
+    <div class="price">$000,000 MXN</div>
+
+    <div class="carousel-container">
+        <div class="carousel-slides" id="slides">
+            <img src="foto1.jpg" alt="Vista frontal">
+            <img src="foto2.jpg" alt="Vista lateral">
+            <img src="foto3.jpg" alt="Interior">
         </div>
-        
-        <p>Elige dónde ver la transmisión</p>
-        <!-- <a href="https://www.youtube.com/@posgradosmatematicasuam-i1131" class="link youtube" target="_blank">YouTube</a>
-         <a href="https://www.facebook.com/seminariopmateuami" class="link facebook" target="_blank">Facebook</a>
-        \-->  
-        <a href="https://youtube.com/live/CYo_YtUPSj8?feature=share" class="link youtube" target="_blank">YouTube</a>
-        <a href="https://www.facebook.com/share/p/19Ux3BbWZJ/" class="link facebook" target="_blank">Facebook</a>
-       
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+
+    <table class="specs">
+        <tr><th>Kilometraje</th><td>XX,XXX km</td></tr>
+        <tr><th>Transmisión</th><td>Automática / Manual</td></tr>
+        <tr><th>Motor</th><td>2.0L / 4 Cilindros</td></tr>
+        <tr><th>Propietarios</th><td>Único dueño / 2do dueño</td></tr>
+        <tr><th>Pagos</th><td>Todo pagado al 2026</td></tr>
+    </table>
+
+    <a href="https://wa.me/525500000000?text=Hola,%20estoy%20interesado%20en%20el%20vehículo" class="contact-btn">
+        Contactar por WhatsApp
+    </a>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slidesContainer = document.getElementById('slides');
+    const totalSlides = document.querySelectorAll('.carousel-slides img').length;
+
+    function moveSlide(direction) {
+        currentSlide += direction;
+        
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        } else if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+        
+        const offset = -currentSlide * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+    }
+</script>
+
 </body>
 </html>
-
